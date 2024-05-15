@@ -53,12 +53,14 @@ public class BillCalculator {
     //Обработка окончаний для вывода
     public static String properTextEnd(float inCost) {
         String textEnd = "";
-        int temp = (int)inCost % 100;
+        int temp = (int)inCost;
 
-        if (temp == 1) {
+        if (temp % 10 == 1 & !((temp % 100) > 10 & (temp % 100) < 20)) {
             textEnd = "ь";
-        } else if (temp > 1 & temp < 5) {
+        } else if ((temp % 10) > 1 & (temp % 10) < 5 & temp > 100) {
             textEnd = "я";
+        } else if ((temp % 100) > 10 & (temp % 100) < 20){
+            textEnd = "ей";
         } else {
             textEnd = "ей";
         }
