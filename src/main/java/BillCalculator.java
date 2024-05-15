@@ -8,27 +8,6 @@ public class BillCalculator {
     static Scanner scanner = new Scanner(System.in);
 
 
-    // Запрос и проверка правильности стоимости
-    public static float getCost() {
-        float getCost = -1.0f;
-
-        while (getCost < 0) {
-            System.out.println("Введите стоимость товара: ");
-            try {
-                getCost = scanner.nextFloat();
-                if (getCost < 0) {
-                    System.out.println("Некорректное значение стоимости.");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Необходимо ввести число. Попробуйте снова.");
-                scanner.next();
-                continue;
-            }
-        }
-        return getCost;
-    }
-
-
     // Запрос и проверка корректности количества человек
     public static int amountRequest() {
         int amountOfPeople = 0;
@@ -45,10 +24,29 @@ public class BillCalculator {
             } catch  (InputMismatchException e) {
                 System.out.println("Необходимо ввести число. Попробуйте снова.");
                 scanner.next();
-                continue;
             }
         }
         return amountOfPeople;
+    }
+
+
+    // Запрос и проверка правильности стоимости
+    public static float getCost() {
+        float getCost = -1.0f;
+
+        while (getCost < 0) {
+            System.out.println("Введите стоимость товара: ");
+            try {
+                getCost = scanner.nextFloat();
+                if (getCost < 0) {
+                    System.out.println("Некорректное значение стоимости.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Необходимо ввести число. Попробуйте снова.");
+                scanner.next();
+            }
+        }
+        return getCost;
     }
 
 
