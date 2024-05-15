@@ -55,12 +55,12 @@ public class BillCalculator {
         String textEnd = "";
         int temp = (int)inCost;
 
-        if (temp % 10 == 1 & !((temp % 100) > 10 & (temp % 100) < 20)) {
-            textEnd = "ь";
-        } else if ((temp % 10) > 1 & (temp % 10) < 5 & temp > 100) {
-            textEnd = "я";
-        } else if ((temp % 100) > 10 & (temp % 100) < 20){
+        if ((temp % 100) > 10 & (temp % 100) < 20) {
             textEnd = "ей";
+        } else if ((temp % 10) > 1 & (temp % 10) < 5) {
+            textEnd = "я";
+        } else if (temp % 10 == 1) {
+            textEnd = "ь";
         } else {
             textEnd = "ей";
         }
